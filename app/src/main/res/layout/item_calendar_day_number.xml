@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="calendarDayNumberModel"
+            type="com.ruben.mycustomcalendar.models.CalendarDayNumberModel" />
+
+        <variable
+            name="currentDay"
+            type="Integer" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{calendarDayNumberModel.isSelected ? @drawable/shape_corners_selected : null}"
+        android:paddingStart="@dimen/dp_4"
+        android:paddingTop="@dimen/dp_4"
+        android:paddingBottom="@dimen/dp_20">
+
+        <TextView
+            android:id="@+id/tv_day_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@{(calendarDayNumberModel.dayNumber == currentDay &amp;&amp; !calendarDayNumberModel.isWeekend() ? @drawable/shape_green_filled : (calendarDayNumberModel.dayNumber == currentDay &amp;&amp; calendarDayNumberModel.isWeekend() ? @drawable/shape_red_filled : null) ) }"
+            android:paddingStart="@dimen/dp_4"
+            android:paddingEnd="@dimen/dp_4"
+            android:text="@{Integer.toString(calendarDayNumberModel.dayNumber)}"
+            android:textColor="@{calendarDayNumberModel.dayNumber == currentDay ? @color/white : (calendarDayNumberModel.isWeekend() ? @color/red : @color/black)}"
+            android:textSize="@dimen/sp_14"
+            tools:text="1" />
+    </LinearLayout>
+</layout>

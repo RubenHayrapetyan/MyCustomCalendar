@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyCustomCalendar</string>
+    <string name="click_from_1_to_7_to_see_events">Click from 1 to 7 to see events</string>
+    <string name="november">November 2021</string>
+</resources>
